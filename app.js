@@ -11,6 +11,7 @@ var fs = require("fs"),
   mongoose = require("mongoose");
 
 require("./models/User");
+require("./config/passport");
 
 var isProduction = process.env.NODE_ENV === "production";
 
