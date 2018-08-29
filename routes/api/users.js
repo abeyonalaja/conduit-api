@@ -4,8 +4,7 @@ const passport = require("passport");
 const User = mongoose.model("User");
 const auth = require("../auth");
 
-router.post("/users", function(req, res, next) {
-  console.log(":::::::::");
+router.post("/users", (req, res, next) => {
   const user = new User();
 
   user.username = req.body.user.username;
@@ -14,7 +13,7 @@ router.post("/users", function(req, res, next) {
 
   user
     .save()
-    .then(function() {
+    .then(() => {
       return res.json({ user: user.toAuthJSON() });
     })
     .catch(next);
